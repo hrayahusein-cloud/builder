@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sallihli/core/helpers/spacing.dart';
+import 'package:sallihli/core/theme/colors.dart';
+import 'package:sallihli/core/theme/styles.dart';
 
 class TPStatsRow extends StatelessWidget {
   final String leftTitle, leftSub;
@@ -18,14 +22,28 @@ class TPStatsRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 18),
+      padding: const EdgeInsets.symmetric(horizontal: 18).w,
       child: Row(
         children: [
-          Expanded(child: _StatBox(icon: Icons.help_outline, title: leftTitle, sub: leftSub)),
+          Expanded(
+            child: _StatBox(
+              icon: Icons.help_outline,
+              title: leftTitle,
+              sub: leftSub,
+            ),
+          ),
           const SizedBox(width: 10),
-          Expanded(child: _StatBox(icon: Icons.star, title: midTitle, sub: midSub)),
+          Expanded(
+            child: _StatBox(icon: Icons.star, title: midTitle, sub: midSub),
+          ),
           const SizedBox(width: 10),
-          Expanded(child: _StatBox(icon: Icons.badge, title: rightTitle, sub: rightSub)),
+          Expanded(
+            child: _StatBox(
+              icon: Icons.badge,
+              title: rightTitle,
+              sub: rightSub,
+            ),
+          ),
         ],
       ),
     );
@@ -42,25 +60,22 @@ class _StatBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 56,
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      height: 56.h,
+      padding: const EdgeInsets.symmetric(horizontal: 10).w,
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.55),
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: const Color(0xFFEF7022).withOpacity(0.6)),
+        color: ColorsManager.white.withOpacity(0.55),
+        borderRadius: BorderRadius.circular(14).r,
+        border: Border.all(color: ColorsManager.rubyOrange.withOpacity(0.6)),
       ),
       child: Row(
         children: [
-          Icon(icon, size: 18, color: const Color(0xFFEF7022)),
-          const SizedBox(width: 8),
+          Icon(icon, size: 18.sp, color: ColorsManager.rubyOrange),
+          horizontalSpace(8),
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(title, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700)),
-                Text(sub, style: const TextStyle(fontSize: 10, color: Colors.black54)),
-              ],
+              children: [Text("$title $sub", style: TextStyles.font10Bold())],
             ),
           ),
         ],

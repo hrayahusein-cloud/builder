@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sallihli/core/helpers/spacing.dart';
+import 'package:sallihli/core/theme/colors.dart';
+import 'package:sallihli/core/theme/styles.dart';
 
 class TPPricingRow extends StatelessWidget {
   final String hourlyPrice;
@@ -14,9 +18,13 @@ class TPPricingRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(child: _PriceCard(title: 'رسوم الساعة', price: hourlyPrice)),
-        const SizedBox(width: 12),
-        Expanded(child: _PriceCard(title: 'العمل اليومي', price: dailyPrice)),
+        Expanded(
+          child: _PriceCard(title: 'رسوم الساعة', price: hourlyPrice),
+        ),
+        horizontalSpace(12),
+        Expanded(
+          child: _PriceCard(title: 'العمل اليومي', price: dailyPrice),
+        ),
       ],
     );
   }
@@ -31,32 +39,34 @@ class _PriceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 56,
-      padding: const EdgeInsets.symmetric(horizontal: 12),
+      height: 56.h,
+      padding: const EdgeInsets.symmetric(horizontal: 12).w,
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: Colors.black.withOpacity(0.08)),
+        color: Theme.of(context).colorScheme.surface,
+        borderRadius: BorderRadius.circular(14).r,
+        border: Border.all(
+          color: Theme.of(context).colorScheme.onSurface.withOpacity(0.4),
+        ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.03),
-            blurRadius: 8,
+            color: ColorsManager.black.withOpacity(0.03),
+            blurRadius: 8.r,
             offset: const Offset(0, 3),
           ),
         ],
       ),
       child: Row(
         children: [
-          const Icon(Icons.attach_money, size: 18),
-          const SizedBox(width: 8),
+          Icon(Icons.attach_money, size: 18.sp),
+          horizontalSpace(8),
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: const TextStyle(fontSize: 11, color: Colors.black54)),
+                Text(title, style: TextStyles.font12Medium()),
                 const SizedBox(height: 2),
-                Text(price, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700)),
+                Text(price, style: TextStyles.font10Medium()),
               ],
             ),
           ),

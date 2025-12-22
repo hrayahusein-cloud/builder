@@ -1,46 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sallihli/core/helpers/spacing.dart';
+import 'package:sallihli/core/theme/colors.dart';
+import 'package:sallihli/core/theme/styles.dart';
 
 class TPReviewsTab extends StatelessWidget {
-  final double rating;
-  final int totalClients;
   final String body;
 
-  const TPReviewsTab({
-    super.key,
-    required this.rating,
-    required this.totalClients,
-    required this.body,
-  });
+  const TPReviewsTab({super.key, required this.body});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        Text(
-          'تقييم $rating ⭐ أكثر من $totalClients عميل.',
-          style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
-        ),
-        const SizedBox(height: 10),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Expanded(
-              child: Text(
+    return SizedBox(
+      height: 125.5.h,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              CircleAvatar(
+                radius: 16.r,
+                backgroundColor: ColorsManager.lightGrayBackground,
+                child: Icon(
+                  Icons.person,
+                  size: 20.sp,
+                  color: ColorsManager.black54,
+                ),
+              ),
+              horizontalSpace(8),
+              Text(
                 body,
                 textAlign: TextAlign.right,
-                style: const TextStyle(fontSize: 12, height: 1.6),
+                style: TextStyles.font14Medium().copyWith(height: 1.7.h),
               ),
-            ),
-            const SizedBox(width: 10),
-            const CircleAvatar(
-              radius: 14,
-              backgroundColor: Color(0xFFF2F2F2),
-              child: Icon(Icons.person, size: 16, color: Colors.black54),
-            ),
-          ],
-        ),
-      ],
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

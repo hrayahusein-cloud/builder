@@ -4,6 +4,23 @@ import 'package:sallihli/core/theme/colors.dart';
 import 'package:sallihli/core/theme/font_weight_helper.dart';
 
 class TextStyles {
+  static TextStyle font10Bold() {
+    return TextStyle(
+      fontFamily: 'Cairo',
+      fontSize: 10.sp,
+      fontWeight: FontWeightHelper.bold,
+    );
+  }
+
+  //font10Medium
+  static TextStyle font10Medium() {
+    return TextStyle(
+      fontFamily: 'Cairo',
+      fontSize: 10.sp,
+      fontWeight: FontWeightHelper.medium,
+    );
+  }
+
   static TextStyle font10MediumGrey() {
     return TextStyle(
       fontFamily: 'Cairo',
@@ -40,6 +57,30 @@ class TextStyles {
     );
   }
 
+  static TextStyle font14Bold() {
+    return TextStyle(
+      fontFamily: 'Cairo',
+      fontSize: 14.sp,
+      fontWeight: FontWeightHelper.bold,
+    );
+  }
+
+  static TextStyle font14Medium() {
+    return TextStyle(
+      fontFamily: 'Cairo',
+      fontSize: 14.sp,
+      fontWeight: FontWeightHelper.medium,
+    );
+  }
+
+  static TextStyle font14SemiBold() {
+    return TextStyle(
+      fontFamily: 'Cairo',
+      fontSize: 14.sp,
+      fontWeight: FontWeightHelper.semiBold,
+    );
+  }
+
   // static TextStyle font16Bold() {
   //   return TextStyle(
   //     fontFamily: 'Cairo',
@@ -62,6 +103,14 @@ class TextStyles {
       fontSize: 12.sp,
       fontWeight: FontWeightHelper.bold,
       color: ColorsManager.white,
+    );
+  }
+
+  static TextStyle font12Bold() {
+    return TextStyle(
+      fontFamily: 'Cairo',
+      fontSize: 12.sp,
+      fontWeight: FontWeightHelper.bold,
     );
   }
 
@@ -127,4 +176,17 @@ class TextStyles {
       color: ColorsManager.white,
     );
   }
+    static TextStyle title16(BuildContext context) => TextStyle(
+        fontFamily: 'Cairo',
+        fontSize: 16.sp,
+        fontWeight: FontWeightHelper.bold,
+        color: Theme.of(context).colorScheme.onBackground,
+      );
+
+  static TextStyle body12(BuildContext context) => TextStyle(
+        fontFamily: 'Cairo',
+        fontSize: 12.sp,
+        fontWeight: FontWeightHelper.medium,
+        color: Theme.of(context).colorScheme.onBackground.withOpacity(0.75),
+      );
 }

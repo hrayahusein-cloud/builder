@@ -1,6 +1,9 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sallihli/core/helpers/is_dark_mode.dart';
+import 'package:sallihli/core/helpers/spacing.dart';
+import 'package:sallihli/core/localization/generated/l10n.dart';
+import 'package:sallihli/core/theme/colors.dart';
 
 import 'widgets/tp_bottom_booking_bar.dart';
 import 'widgets/tp_contact_row.dart';
@@ -8,8 +11,7 @@ import 'widgets/tp_header_bar.dart';
 import 'widgets/tp_pricing_row.dart';
 import 'widgets/tp_profile_card.dart';
 import 'widgets/tp_stats_row.dart';
-import 'widgets/tp_tabs.dart';  
-import 'widgets/tp_top_identity.dart';
+import 'widgets/tp_tabs.dart';
 import 'widgets/tabs/tp_about_tab.dart';
 import 'widgets/tabs/tp_availability_tab.dart';
 import 'widgets/tabs/tp_experience_tab.dart';
@@ -42,27 +44,25 @@ class _TradespersonPublicProfileScreenState
             const _BackgroundGradient(),
             SafeArea(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.only(bottom: 110),
                 child: Column(
                   children: [
-                    const SizedBox(height: 8),
+                    verticalSpace(16),
                     TPHeaderBar(
                       onBack: () => Navigator.pop(context),
+                      name: name,
+                      role: role,
                     ),
-                    const SizedBox(height: 10),
 
-                    TPTopIdentity(name: name, role: role),
-                    const SizedBox(height: 14),
+                    verticalSpace(30),
 
                     TPProfileCard(
                       imagePath: imagePath,
-                      badgeText: '159 د.س/ساعة',
                       specialtyTitle: 'فني إصلاح محترف',
                       personName: name,
                       experienceLine: '8 سنوات خبرة',
                     ),
 
-                    const SizedBox(height: 14),
+                    verticalSpace(40),
 
                     const TPStatsRow(
                       leftTitle: 'أكثر من 150+',
@@ -73,30 +73,34 @@ class _TradespersonPublicProfileScreenState
                       rightSub: 'الخبرة',
                     ),
 
-                    const SizedBox(height: 16),
+                    verticalSpace(40),
 
                     // الـ Panel الأبيض + Tabs + Content + أسفل (اتصال/أسعار)
                     _WhitePanel(
                       child: Column(
                         children: [
-                          const SizedBox(height: 10),
+                          verticalSpace(10),
                           const _HandleBar(),
-                          const SizedBox(height: 12),
-
+                          verticalSpace(12),
                           TPTabs(
                             activeIndex: _tabIndex,
                             onChanged: (i) => setState(() => _tabIndex = i),
-                            labels: const ['نبذة عني', 'الخبرة', 'التوافر', 'التقييمات'],
+                            labels: const [
+                              'نبذة عني',
+                              'الخبرة',
+                              'التوافر',
+                              'التقييمات',
+                            ],
                           ),
 
-                          const SizedBox(height: 14),
+                          verticalSpace(14),
 
                           _TabBodySwitcher(
                             index: _tabIndex,
                             about: TPAboutTab(
                               title: name,
                               body:
-                                  'محمد علي كهربائي محترف، متخصص بخبرة 8 سنوات في أعمال التمديدات الكهربائية الداخلية والخارجية. أنجزت العديد من المشاريع بدءاً من إعادة توصيل الأسلاك المنزلية...',
+                                  "محمد علي كهربائي معتمد بخبرة 8 لاسنوات وهو مختص في التمديدات الكهربائية السكنية والتجارية، حيث أنجز العديد من المشاريع بدءًا من إعادة توصيل الاسلاك المنزلية...",
                             ),
                             experience: const TPExperienceTab(
                               body:
@@ -107,13 +111,11 @@ class _TradespersonPublicProfileScreenState
                                   'متوفر للعمل داخل دمشق وحسب الحجز.\nالتوافر ضمن داخل المدينة.',
                             ),
                             reviews: const TPReviewsTab(
-                              rating: 4.9,
-                              totalClients: 150,
                               body: 'عمل ممتاز ومتقن.',
                             ),
                           ),
 
-                          const SizedBox(height: 18),
+                          verticalSpace(60),
 
                           // شريط اسم + أزرار تواصل (مثل الصورة)
                           TPContactRow(
@@ -122,16 +124,14 @@ class _TradespersonPublicProfileScreenState
                             onCall: () {},
                             onChat: () {},
                           ),
-
-                          const SizedBox(height: 12),
-
+                          verticalSpace(20),
                           // أسعار
                           const TPPricingRow(
                             hourlyPrice: '159.00 د.س',
                             dailyPrice: '159.00 د.س',
                           ),
 
-                          const SizedBox(height: 18),
+                          verticalSpace(20),
                         ],
                       ),
                     ),
@@ -159,12 +159,12 @@ class _BackgroundGradient extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            Color(0xFFF7E1B8),
+            isDarkMode(context) ? Colors.black : Color(0xFFF7E1B8),
             Color(0xFFF7EFE2),
           ],
         ),
@@ -181,10 +181,10 @@ class _WhitePanel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(26)),
+      padding: const EdgeInsets.symmetric(horizontal: 16).w,
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.surface,
+        borderRadius: BorderRadius.vertical(top: Radius.circular(26).r),
       ),
       child: child,
     );
@@ -197,11 +197,11 @@ class _HandleBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 46,
-      height: 4,
+      width: 46.w,
+      height: 4.h,
       decoration: BoxDecoration(
-        color: const Color(0xFFEF7022),
-        borderRadius: BorderRadius.circular(100),
+        color: ColorsManager.rubyOrange,
+        borderRadius: BorderRadius.circular(100).r,
       ),
     );
   }

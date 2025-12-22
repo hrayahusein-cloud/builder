@@ -11,6 +11,7 @@ class AppTheme {
       surface: ColorsManager.white,
       onSurface: ColorsManager.black,
       onPrimary: ColorsManager.white,
+      
     ),
   );
 

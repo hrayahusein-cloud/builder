@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sallihli/core/theme/colors.dart';
+import 'package:sallihli/core/theme/styles.dart';
 
 class TPTabs extends StatelessWidget {
   final int activeIndex;
@@ -15,9 +18,9 @@ class TPTabs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(6),
+      padding: const EdgeInsets.all(6).r,
       decoration: BoxDecoration(
-        color: const Color(0xFFF6F6F6),
+        color: ColorsManager.softPeachCream,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Row(
@@ -25,21 +28,23 @@ class TPTabs extends StatelessWidget {
           final bool active = i == activeIndex;
           return Expanded(
             child: InkWell(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12).r,
               onTap: () => onChanged(i),
               child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 10),
+                padding: const EdgeInsets.symmetric(vertical: 10).h,
                 decoration: BoxDecoration(
-                  color: active ? Colors.white : Colors.transparent,
-                  borderRadius: BorderRadius.circular(12),
+                  color: active
+                      ? Theme.of(context).colorScheme.surface
+                      : ColorsManager.softPeachCream,
+                  borderRadius: BorderRadius.circular(12).r,
                 ),
                 child: Center(
                   child: Text(
                     labels[i],
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: active ? FontWeight.w700 : FontWeight.w600,
-                      color: active ? Colors.black : Colors.black54,
+                    style: TextStyles.font14Medium().copyWith(
+                      color: active
+                          ? Theme.of(context).colorScheme.onSurface
+                          : ColorsManager.black,
                     ),
                   ),
                 ),

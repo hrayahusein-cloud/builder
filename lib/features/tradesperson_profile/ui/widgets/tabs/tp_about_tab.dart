@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sallihli/core/helpers/spacing.dart';
+import 'package:sallihli/core/theme/styles.dart';
 
 class TPAboutTab extends StatelessWidget {
   final String title;
@@ -11,9 +14,15 @@ class TPAboutTab extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: const TextStyle(fontWeight: FontWeight.w700)),
-        const SizedBox(height: 8),
-        Text(body, style: const TextStyle(fontSize: 12, height: 1.6)),
+        Text(title, style: TextStyles.font14Bold()),
+        verticalSpace(8),
+        Padding(
+          padding: EdgeInsetsDirectional.only(end: 50.w),
+          child: Text(
+            body,
+            style: TextStyles.font14Medium().copyWith(height: 1.7.h),
+          ),
+        ),
       ],
     );
   }

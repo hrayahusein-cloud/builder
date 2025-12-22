@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sallihli/core/helpers/spacing.dart';
+import 'package:sallihli/core/theme/colors.dart';
+import 'package:sallihli/core/theme/styles.dart';
 
 class TPProfileCard extends StatelessWidget {
   final String imagePath;
-  final String badgeText;
   final String specialtyTitle;
   final String personName;
   final String experienceLine;
@@ -10,7 +13,7 @@ class TPProfileCard extends StatelessWidget {
   const TPProfileCard({
     super.key,
     required this.imagePath,
-    required this.badgeText,
+
     required this.specialtyTitle,
     required this.personName,
     required this.experienceLine,
@@ -19,11 +22,11 @@ class TPProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 20),
-      padding: const EdgeInsets.all(12),
+      margin: const EdgeInsets.symmetric(horizontal: 20).w,
+      padding: const EdgeInsets.all(12).w,
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.55),
-        borderRadius: BorderRadius.circular(22),
+        color: ColorsManager.white.withOpacity(0.55),
+        borderRadius: BorderRadius.circular(22).r,
       ),
       child: Row(
         children: [
@@ -32,68 +35,35 @@ class TPProfileCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
-                  children: const [
-                    Icon(Icons.handyman, size: 16, color: Color(0xFFEF7022)),
-                    SizedBox(width: 6),
-                    Text(
-                      'فني إصلاح محترف',
-                      style: TextStyle(fontSize: 12, color: Colors.black87),
+                  children: [
+                    Icon(
+                      Icons.handyman,
+                      size: 16.sp,
+                      color: ColorsManager.rubyOrange,
                     ),
+                    horizontalSpace(4),
+                    Text('فني إصلاح محترف', style: TextStyles.font14Medium()),
                   ],
                 ),
-                const SizedBox(height: 8),
-                Text(
-                  personName,
-                  style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  experienceLine,
-                  style: const TextStyle(fontSize: 12, color: Colors.black54),
-                ),
-                const SizedBox(height: 8),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: _OrangeBadge(text: badgeText),
-                ),
+                verticalSpace(8),
+                Text(personName, style: TextStyles.font14Bold()),
+                verticalSpace(4),
+                Text(experienceLine, style: TextStyles.font14SemiBold()),
+                verticalSpace(8),
               ],
             ),
           ),
-          const SizedBox(width: 10),
+          horizontalSpace(12),
           ClipRRect(
-            borderRadius: BorderRadius.circular(18),
+            borderRadius: BorderRadius.circular(18).r,
             child: Image.asset(
               imagePath,
-              width: 86,
-              height: 86,
+              width: 86.w,
+              height: 86.h,
               fit: BoxFit.cover,
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class _OrangeBadge extends StatelessWidget {
-  final String text;
-  const _OrangeBadge({required this.text});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-      decoration: BoxDecoration(
-        color: const Color(0xFFEF7022),
-        borderRadius: BorderRadius.circular(18),
-      ),
-      child: Text(
-        text,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 10,
-          fontWeight: FontWeight.w700,
-        ),
       ),
     );
   }
