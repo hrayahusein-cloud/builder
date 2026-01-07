@@ -5,6 +5,8 @@ import 'package:sallihli/features/Client_Home/ui/widgets/services_section.dart';
 import 'package:sallihli/features/Client_Home/ui/widgets/technicians_section.dart';
 import 'package:sallihli/features/Client_Home/ui/widgets/top_actions_row.dart';
 import 'package:sallihli/features/Client_Home/ui/widgets/welcome_banner.dart';
+import 'package:sallihli/features/Client_Home/ui/widgets/why_choose_us_section.dart';
+
 class HomeScreenBody extends StatelessWidget {
   const HomeScreenBody({super.key});
 
@@ -23,6 +25,8 @@ class HomeScreenBody extends StatelessWidget {
               ServicesSection(),
               verticalSpace(16),
               TechniciansSection(),
+              verticalSpace(16),
+              WhyChooseUsSection(),
             ],
           ),
         ),

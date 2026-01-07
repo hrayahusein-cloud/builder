@@ -11,6 +11,9 @@ class ColorsManager {
   static const Color softPeachCream = Color(0xFFFFF4ED);
   static const Color lightGrayBackground = Color(0xFFF2F2F2);
   static const Color black54 = Color(0x8A000000);
+  static const Color softBlue = Color(0XFFE7F2FD);
+   static const Color softYellow = Color(0XFFFEA23B);
+
 
 
 

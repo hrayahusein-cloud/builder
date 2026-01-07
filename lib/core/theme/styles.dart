@@ -4,6 +4,23 @@ import 'package:sallihli/core/theme/colors.dart';
 import 'package:sallihli/core/theme/font_weight_helper.dart';
 
 class TextStyles {
+  static TextStyle font24BoldWhite() {
+    return TextStyle(
+      fontFamily: 'Cairo',
+      fontSize: 24.sp,
+      fontWeight: FontWeightHelper.bold,
+      color: ColorsManager.white,
+    );
+  }
+
+  static TextStyle font24Bold() {
+    return TextStyle(
+      fontFamily: 'Cairo',
+      fontSize: 24.sp,
+      fontWeight: FontWeightHelper.bold,
+    );
+  }
+
   static TextStyle font10Bold() {
     return TextStyle(
       fontFamily: 'Cairo',
@@ -113,6 +130,13 @@ class TextStyles {
       fontWeight: FontWeightHelper.bold,
     );
   }
+    static TextStyle font12SemiBold() {
+    return TextStyle(
+      fontFamily: 'Cairo',
+      fontSize: 12.sp,
+      fontWeight: FontWeightHelper.semiBold,
+    );
+  }
 
   static TextStyle font12BoldRubyOrange() {
     return TextStyle(
@@ -141,6 +165,15 @@ class TextStyles {
     );
   }
 
+  static TextStyle font16semiBold() {
+    return TextStyle(
+      fontFamily: 'Cairo',
+      fontSize: 16.sp,
+
+      fontWeight: FontWeightHelper.semiBold,
+    );
+  }
+
   static TextStyle font16BoldOceanTeal() {
     return TextStyle(
       fontFamily: 'Cairo',
@@ -159,15 +192,6 @@ class TextStyles {
     );
   }
 
-  static TextStyle font24BoldWhite() {
-    return TextStyle(
-      fontFamily: 'Cairo',
-      fontSize: 24.sp,
-      fontWeight: FontWeightHelper.bold,
-      color: ColorsManager.white,
-    );
-  }
-
   static TextStyle font16RegularWhite() {
     return TextStyle(
       fontFamily: 'Cairo',
@@ -176,17 +200,18 @@ class TextStyles {
       color: ColorsManager.white,
     );
   }
-    static TextStyle title16(BuildContext context) => TextStyle(
-        fontFamily: 'Cairo',
-        fontSize: 16.sp,
-        fontWeight: FontWeightHelper.bold,
-        color: Theme.of(context).colorScheme.onBackground,
-      );
+
+  static TextStyle title16(BuildContext context) => TextStyle(
+    fontFamily: 'Cairo',
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: Theme.of(context).colorScheme.onBackground,
+  );
 
   static TextStyle body12(BuildContext context) => TextStyle(
-        fontFamily: 'Cairo',
-        fontSize: 12.sp,
-        fontWeight: FontWeightHelper.medium,
-        color: Theme.of(context).colorScheme.onBackground.withOpacity(0.75),
-      );
+    fontFamily: 'Cairo',
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.medium,
+    color: Theme.of(context).colorScheme.onBackground.withOpacity(0.75),
+  );
 }
