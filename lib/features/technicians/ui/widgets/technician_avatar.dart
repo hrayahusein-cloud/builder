@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TechnicianAvatar extends StatelessWidget {
   final String imagePath;
@@ -10,12 +11,9 @@ class TechnicianAvatar extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(22),
       child: SizedBox(
-        width: 90,
-        height: 90,
-        child: Image.asset(
-          imagePath,
-          fit: BoxFit.cover,
-        ),
+        width: 90.w,
+        height: 90.h,
+        child: Image.asset(imagePath, fit: BoxFit.cover),
       ),
     );
   }
