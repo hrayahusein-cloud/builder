@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sallihli/core/helpers/is_dark_mode.dart';
 import 'package:sallihli/core/helpers/spacing.dart';
-import 'package:sallihli/core/localization/generated/l10n.dart';
 import 'package:sallihli/core/theme/colors.dart';
 
+import 'widgets/tabs/tp_about_tab.dart';
+import 'widgets/tabs/tp_availability_tab.dart';
+import 'widgets/tabs/tp_experience_tab.dart';
+import 'widgets/tabs/tp_reviews_tab.dart';
 import 'widgets/tp_bottom_booking_bar.dart';
 import 'widgets/tp_contact_row.dart';
 import 'widgets/tp_header_bar.dart';
@@ -12,10 +15,6 @@ import 'widgets/tp_pricing_row.dart';
 import 'widgets/tp_profile_card.dart';
 import 'widgets/tp_stats_row.dart';
 import 'widgets/tp_tabs.dart';
-import 'widgets/tabs/tp_about_tab.dart';
-import 'widgets/tabs/tp_availability_tab.dart';
-import 'widgets/tabs/tp_experience_tab.dart';
-import 'widgets/tabs/tp_reviews_tab.dart';
 
 class TradespersonPublicProfileScreen extends StatefulWidget {
   const TradespersonPublicProfileScreen({super.key});

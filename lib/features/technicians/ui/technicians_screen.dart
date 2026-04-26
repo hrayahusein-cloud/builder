@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sallihli/core/helpers/spacing.dart';
-import 'package:sallihli/core/theme/styles.dart';
-import 'package:sallihli/features/Client_Home/ui/widgets/service_chip.dart';
 import 'package:sallihli/features/Client_Home/ui/widgets/top_actions_row.dart';
 import 'package:sallihli/features/technicians/ui/widgets/list_of_services.dart';
 import 'package:sallihli/features/technicians/ui/widgets/technicians_list_page.dart';

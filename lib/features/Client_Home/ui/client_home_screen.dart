@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sallihli/core/helpers/extensions.dart';
+import 'package:sallihli/core/routing/routes.dart';
 import 'package:sallihli/features/Client_Home/ui/client_home_body.dart';
-
 import 'package:sallihli/features/account/ui/account_screen.dart';
 import 'package:sallihli/features/chat/chat_screen.dart';
 import 'package:sallihli/features/navigation/ui/widgets/center_fab_button.dart';
@@ -29,9 +30,7 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
   }
 
   void _onCenterAction() {
-    // هنا حط منطق زر الـ +
-    // مثلاً فتح bottom sheet لطلب خدمة جديدة
-    debugPrint('Center + button pressed');
+    context.pushNamed(Routes.postJopScreen);
   }
 
   @override
@@ -41,7 +40,6 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: CenterFabButton(onPressed: _onCenterAction),
       bottomNavigationBar: CustomBottomNavBar(
-        
         currentIndex: _currentIndex,
         onItemSelected: _onItemSelected,
       ),

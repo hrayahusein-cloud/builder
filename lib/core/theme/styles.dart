@@ -130,7 +130,8 @@ class TextStyles {
       fontWeight: FontWeightHelper.bold,
     );
   }
-    static TextStyle font12SemiBold() {
+
+  static TextStyle font12SemiBold() {
     return TextStyle(
       fontFamily: 'Cairo',
       fontSize: 12.sp,
@@ -171,6 +172,15 @@ class TextStyles {
       fontSize: 16.sp,
 
       fontWeight: FontWeightHelper.semiBold,
+    );
+  }
+
+  static TextStyle font16MediumStoneGray() {
+    return TextStyle(
+      fontFamily: 'Cairo',
+      fontSize: 16.sp,
+      fontWeight: FontWeightHelper.medium,
+      color: ColorsManager.stoneGray,
     );
   }
 
